@@ -1,0 +1,5 @@
+I am going to build a simple chat using Wolframalpha's conversational API. This simple app will allow you to ask random questions, get a response, and then follow up with a related question or ask a new question.
+
+This will require two fetch requests, Two GETs with text term. The first will be a simple initial request. The second will require modifying the fetch using information provided in the first GET in order to get intelligent follow up
+
+This will involve using fetch, objects, and array functions to store and use returned information and display it. 

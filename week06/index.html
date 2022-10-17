@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Wolfram Alpha a Question</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <h1 id="navTitle">Ask Wolfram Alpha a question below!</h1>
+    </nav>
+    <main>
+      <section id="chatbox">
+        <section id="messages">
+          <div class="recipient">
+            <p>Messages from Wolfram will appear here!</p>
+          </div>
+          <div class="sender"><p>What you send will be here!</p></div>
+        </section>
+      </section>
+      <section id="sendMessage">
+        <input
+          name="chat"
+          id="chat"
+          type="text"
+          placeholder="Send me a message!"
+        />
+        <button id="button" class="button">Send</button>
+      </section>
+      <footer>
+        <span id="year">Update</span>
+        <h3>Made by Joshua Keith Pearson</h3>
+      </footer>
+    </main>
+    <script type="module" src="environment.js"></script>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>
