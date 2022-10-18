@@ -13,9 +13,10 @@ const getCurrentYear = () => {
   year.innerHTML = thisYear;
 };
 
-// Input validator
 const validate = (input) => {
-  return input != "" ? true : false;
+  let valid = true;
+  valid = input != "" ? true : false;
+  return valid;
 };
 
 const resetInput = () => {
@@ -55,24 +56,17 @@ const callApi = async (message) => {
 };
 
 const createRecipientMessage = (message) => {
-  if (message.result) {
-    const newMessage = document.createElement("div");
-    const messageContent = document.createElement("p");
-    messageContent.innerHTML = message.result;
-    newMessage.appendChild(messageContent);
-    newMessage.setAttribute("class", "recipient");
-    messages.appendChild(newMessage);
-    resetInput();
-  } else {
-    console.log(message.error);
-    const newMessage = document.createElement("div");
-    const messageContent = document.createElement("p");
-    messageContent.innerHTML = message.error;
-    newMessage.appendChild(messageContent);
-    newMessage.setAttribute("class", "recipient");
-    messages.appendChild(newMessage);
-    resetInput();
-  }
+  const newMessage = document.createElement("div");
+  const messageContent = document.createElement("p");
+  messageContent.innerHTML = message.result || message.error;
+  newMessage.appendChild(messageContent);
+  newMessage.setAttribute("class", "recipient");
+  messages.appendChild(newMessage);
+  if (message.error) console.log(message.error);
+  messages.lastChild.scrollIntoView({
+    behavior: "smooth",
+  });
+  resetInput();
 };
 
 const createSenderMessage = (message) => {
@@ -82,6 +76,9 @@ const createSenderMessage = (message) => {
   newMessage.appendChild(messageContent);
   newMessage.setAttribute("class", "sender");
   messages.appendChild(newMessage);
+  messages.lastChild.scrollIntoView({
+    behavior: "smooth",
+  });
   resetInput();
 };
 
