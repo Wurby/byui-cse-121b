@@ -24,6 +24,10 @@ const resetInput = () => {
   sendMessageBlock.removeChild(sendMessageBlock.firstChild);
   inputField.value = "";
   sendMessageBlock.prepend(inputField);
+  inputField.focus({
+    preventScroll: true,
+    focusVisible: false,
+  });
 };
 
 getCurrentYear();
@@ -63,9 +67,7 @@ const createRecipientMessage = (message) => {
   newMessage.setAttribute("class", "recipient");
   messages.appendChild(newMessage);
   if (message.error) console.log(message.error);
-  messages.lastChild.scrollIntoView({
-    behavior: "smooth",
-  });
+  messages.lastChild.scrollIntoView();
   resetInput();
 };
 
@@ -91,3 +93,6 @@ const sendMessage = () => {
 };
 
 document.querySelector("#button").addEventListener("click", sendMessage);
+inputField.addEventListener("keypress", (e) => {
+  if (e.key == "Enter") sendMessage();
+});

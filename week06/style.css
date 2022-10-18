@@ -27,7 +27,7 @@ main {
 
 #chatbox {
     width: 100%;
-    background-color: grey;
+    background-color: #8EBFE1;
     flex-grow: 1;
     display: flex;
     justify-content: center;
